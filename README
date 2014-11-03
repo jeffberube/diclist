@@ -1,0 +1,28 @@
+@Author: 	Jeff Berube
+@ID:		4356171
+@Title:		Dictionary v3 (Assignment #3 - CS2010)
+	
+
+@Description:	Takes file input and output unique word frequency in a table.
+
+
+@Compile:	To compile, type 
+
+		make 
+
+		inside program directory.
+
+
+@How to use:	To use, type
+
+		./dic < FILENAME
+
+		inside program directory where filename is the name of the file you 
+		want to index in the dictionary. 
+
+
+@Git:		To clone into directory, type
+
+		git clone https://github.com/jeffberube/diclist.git
+
+		inside directory.

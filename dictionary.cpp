@@ -52,9 +52,7 @@ BOOL InsertWord(DICT& dict, WORD word) {
 
 			assert(next != 0);
 
-			while (next && word < next->w) {
-
-				cout << next->w;
+			while (next && word > next->w) {
 
 				prev = next;
 				next = next->nextWord;
@@ -119,30 +117,25 @@ void DumpDictionary(DICT& dict) {
 WORD GetNextWord(void) {
 
 	/* Variables */
-	char *ch = new char;
-	WORD next = "";
+	WORD nextWord = "", buffer = "";
 
 	/* In case end of file, return empty string */
-	if (cin.eof()) {
-	
-		delete ch;
+	if (cin.eof()) 
 		return "";
 
-	}
-
 	/* In case of multiple non alpha characters, just throw output away until you get next word */
-	while (next == "") {
+	
+	char c;
 
-		while (cin.good() && isalpha((*ch = cin.get()))) next.append(ch);
+	while (nextWord == "" && cin.good()) 
+		cin >> nextWord;
 
-		if (cin.eof()) break;
+	for (char c: nextWord)
+	       if (isalpha(c)) buffer.push_back(c);
 
-	}
-
-	delete ch;
-
-	/* Return word */
-	return next;
+	nextWord = buffer;	
+	
+	return nextWord;
 
 }
 

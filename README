@@ -15,7 +15,7 @@
 
 @How to use:	To use, type
 
-		./dic < FILENAME
+		./diclist < FILENAME
 
 		inside program directory where filename is the name of the file you 
 		want to index in the dictionary. 

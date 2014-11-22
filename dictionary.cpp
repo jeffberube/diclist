@@ -117,24 +117,21 @@ void DumpDictionary(DICT& dict) {
 WORD GetNextWord(void) {
 
 	/* Variables */
-	WORD nextWord = "", buffer = "";
+	char *ch = (char *)malloc(2);
+
+	WORD nextWord = "";
 
 	/* In case end of file, return empty string */
-	if (cin.eof()) 
-		return "";
+	if (cin.eof()) return "";
 
-	/* In case of multiple non alpha characters, just throw output away until you get next word */
-	
-	char c;
+	/* In case of multiple non alpha characters, just throw output away until next word */
+	while (nextWord == "") {
 
-	while (nextWord == "" && cin.good()) 
-		cin >> nextWord;
+		while (cin.good() && isalpha((*ch = cin.get()))) nextWord.append(ch);
 
-	for (char c: nextWord)
-	       if (isalpha(c)) buffer.push_back(c);
+		if (cin.eof()) break;
+	}
 
-	nextWord = buffer;	
-	
 	return nextWord;
 
 }
